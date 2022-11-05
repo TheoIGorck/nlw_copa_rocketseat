@@ -51,7 +51,7 @@ export function AuthContextProvider({ children }: AuthProviderProps ) {
             setIsUserLoading(true);
 
             const tokenResponse = await api.post('/users', { access_token });
-            api.defaults.headers.common['Authorization'] = `Bearer ${tokenResponse}`
+            api.defaults.headers.common['Authorization'] = `Bearer ${tokenResponse.data.token}`
 
             const userInfoResponse = await api.get('/me');
             setUser(userInfoResponse.data.user);

@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { Heading, useToast, VStack } from "native-base";
+import { useNavigation } from '@react-navigation/native';
 
 import { api } from '../services/api';
 
 import { Button } from "../components/Button";
 import { Header } from '../components/Header';
 import { Input } from "../components/Input";
-import { useNavigation } from '@react-navigation/native';
 
 export function Find() {
     const [isLoading, setIsLoading] = useState(false);
@@ -78,10 +78,13 @@ export function Find() {
                 <Input 
                     mb={2}
                     placeholder="Qual o código do bolão?"
+                    autoCapitalize="characters"
+                    onChangeText={setCode}
                 />
 
                 <Button
                     title="BUSCAR BOLÃO"
+                    onPress={handleJoinPoll}
                 />
             </VStack>
         </VStack>

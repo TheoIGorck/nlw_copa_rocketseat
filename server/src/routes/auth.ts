@@ -17,7 +17,7 @@ export async function authRoutes(fastify: FastifyInstance) {
 
         const { access_token } = createUserBody.parse(request.body) 
 
-        const userResponse = await fetch('https://www.googleapis.com/oauth2/v2/userinfor', {
+        const userResponse = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${access_token}`,

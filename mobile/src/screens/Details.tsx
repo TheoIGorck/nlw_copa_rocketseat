@@ -32,6 +32,7 @@ export function Details() {
             setIsLoading(true);
 
             const response = await api.get(`/polls/${id}`);
+            console.log(response.data.poll);
             setPollDetails(response.data.poll);
 
         } catch (error) {
